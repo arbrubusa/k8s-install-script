@@ -2,6 +2,8 @@
 
 This is a basic script to setup a one-node Kubernetes solution on an Ubuntu 22.04 VM running in UTM on a Mac with Apple Silicon M1.
 
+The script was adapted from one created by Saiyam Pathak and can be found here: https://gist.github.com/saiyam1814/d87598cf55c71953e288cd22858c0593 
+
 # Some Information
 
 The script does the main setup for a one-node Kubernetes service on an Ubuntu 22.04 VM ([Ubuntu 22.04.3 Live Server for ARM64](https://cdimage.ubuntu.com/releases/22.04/release/ubuntu-22.04.3-live-server-arm64.iso)). Created specifically for use with a MacBook running Apple M1 Silicon, it might require adaptations for other architectures.
