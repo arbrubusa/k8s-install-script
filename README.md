@@ -74,4 +74,20 @@ Removes the `NoSchedule` taint from the control-plane node to allow pod scheduli
 ## Re-Enable Interactive Mode
 Reverts the `sysctl` interactive mode setting for user prompts.
 
-This README provides an overview of each script step for installing and configuring a Kubernetes cluster on a single node. The script automates various tasks to ensure a correctly configured Kubernetes environment.
+This README provides an overview of each script step for installing and configuring a Kubernetes cluster on a single node. It automates various tasks to ensure a correctly configured Kubernetes environment.
+
+
+## Things to do after the script is complete
+
+Make sure to add kubectl to your bash environment:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+And enable autocomplition:
+
+  sudo apt install bash-completion
+  kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
+
+Have fun!!! 
