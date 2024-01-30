@@ -83,11 +83,11 @@ Make sure to add kubectl to your bash environment:
 
 `mkdir -p $HOME/.kube`\
 `sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config`\
-`sudo chown $(id -u):$(id -g) $HOME/.kube/config`\
+`sudo chown $(id -u):$(id -g) $HOME/.kube/config`
 
 And enable autocomplition:
 
 `sudo apt install bash-completion`\
-`kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null`\
+`kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null`
 
 Have fun!!! 
