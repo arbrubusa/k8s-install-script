@@ -62,6 +62,9 @@ Installs specific versions of `kubelet`, `kubeadm`, and `kubectl`, and holds the
 - **Pre-pull Kubernetes Images**: Ensures all required images are available locally.
 - **Initialize Cluster**: Initializes the Kubernetes cluster with `kubeadm init`, specifying the pod network CIDR and control plane endpoint.
 
+## Setup local environment
+This is needed so you can just type kubectl and it access the cluster API. Without this, you would need to add more parameters to the kubectl command, either specifing the location of the kubeconfig or the correct IP/URL of the API.
+
 ## Apply Flannel CNI
 Deploys the Flannel CNI configuration for pod networking.
 
@@ -74,18 +77,13 @@ Removes the `NoSchedule` taint from the control-plane node to allow pod scheduli
 ## Re-Enable Interactive Mode
 Reverts the `sysctl` interactive mode setting for user prompts.
 
-This README provides an overview of each script step for installing and configuring a Kubernetes cluster on a single node. It automates various tasks to ensure a correctly configured Kubernetes environment.
+
+== This README provides an overview of each script step for installing and configuring a Kubernetes cluster on a single node. It automates various tasks to ensure a correctly configured Kubernetes environment.
 
 
 ## Things to do after the script is complete
 
-Make sure to add kubectl to your bash environment:
-
-`mkdir -p $HOME/.kube`\
-`sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config`\
-`sudo chown $(id -u):$(id -g) $HOME/.kube/config`
-
-And enable autocomplition:
+Enable autocomplition:
 
 `sudo apt install bash-completion`\
 `kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null`
