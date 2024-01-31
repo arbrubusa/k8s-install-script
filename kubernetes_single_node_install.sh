@@ -86,15 +86,15 @@ echo "image pull and cluster setup"
 sudo kubeadm config images pull --kubernetes-version v1.29.0
 sudo kubeadm init   --pod-network-cidr=10.244.0.0/16   --upload-certs --kubernetes-version=v1.29.0  --control-plane-endpoint=$(hostname) --cri-socket unix:///var/run/containerd/containerd.sock
 
-echo "Apply flannel network"
-wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
-kubectl apply -f kube-flannel.yml
-sudo systemctl restart kubelet
-
 #Add kubectl to your local environment
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+echo "Apply flannel network"
+wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
+kubectl apply -f kube-flannel.yml
+sudo systemctl restart kubelet
 
 kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 
