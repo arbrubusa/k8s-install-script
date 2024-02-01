@@ -83,6 +83,9 @@ Reverts the `sysctl` interactive mode setting for user prompts.
 
 ## Things to do after the script is complete
 
+Update your session with the command:
+`source ~/.bashrc`
+
 Enable autocomplition:
 
 `sudo apt install bash-completion`\
