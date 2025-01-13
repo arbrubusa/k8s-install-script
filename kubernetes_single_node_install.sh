@@ -10,7 +10,7 @@ echo "Change hostname to control-plane"
 sudo hostnamectl set-hostname control-plane
 
 echo "Add hostname to hosts file"
-ip_address=$(    | awk '/inet/ {print $2}' | cut -d/ -f1)
+ip_address=$( ip a | awk '/inet/ {print $2}' | cut -d/ -f1)
 hostname=$(hostname)
 echo "$ip_address $hostname" | sudo tee -a /etc/hosts
 
